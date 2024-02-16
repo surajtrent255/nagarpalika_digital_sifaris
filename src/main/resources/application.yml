@@ -1,0 +1,147 @@
+############## Server port configuration ################
+server:
+  port: 8888
+
+############## Configuration for the jwt ################
+jwt:
+  security:
+    key: ishanitech
+  applicationName: ishanitech
+  expirationDate: 1728000000
+  auth:
+    header: Authorization
+    schema: Bearer
+
+  #####Mail Configuraton ##########
+  mail:
+    default-encoding: UTF-8
+    host: mail.ishanitech.com
+    username: test@ishanitech.com
+    password: Password1*#
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtp
+#mail:
+#  default-encoding: UTF-8
+#  host: smtp.gmail.com
+#  username: nabinjoshi400@gmail.com
+#  password: fdfwlukmzojfuwrc
+#  port: 587
+#  properties:
+#    mail:
+#      smtp:
+#        auth: true
+#        starttls:
+#          enable: true
+#  protocol: smtp
+
+############## Configuration for multipart surpport ###############
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 50MB
+      max-request-size: 100MB
+---
+spring:
+  profiles: dev
+############## File Uploading Directory #################
+rest-microservice-api:
+  protocol: http
+  domain: localhost
+  port: 8889
+
+database:
+  username: root
+  password: suraj123
+
+file:
+  upload:
+    directory: /home/suraj/Documents/ishanitech/ipalika-extended-v3/ipasal/ipalika/
+
+rest:
+  protocol: http
+  domain: localhost
+  port: 8888
+  resource-location: resource
+
+logging:
+  loggin:
+    level:
+      root: ERROR
+  file: /home/suraj/Documents/ishanitech/ipalika-extended-v3/ipasal/ipalika/logs/ipalika-rest-api.log
+
+webservice:
+  host-url: http://localhost:9191/
+
+letter:
+  bluePrint: /home/suraj/letterBluePrint/
+  html: /home/suraj/letterMailHtml/
+  pdf: /home/suraj/letterMailPdf/
+
+---
+spring:
+  profiles: ishani-prod
+
+logging:
+  loggin:
+    level:
+      root: ERROR
+  file: /archiesoft/ipalika/webservice/logs/ipalika-rest.log
+
+database:
+  username: root
+  password: 24Pr1y@msh@
+
+file:
+  upload:
+    directory: /home/ishani/ipalika/
+
+rest:
+  protocol: http
+  domain: 103.233.58.121
+  port: 8888
+  resource-location: resource
+
+---
+spring:
+  profiles: prod
+
+logging:
+  loggin:
+    level:
+      root: ERROR
+  file: /home/suraj/archiesoft/ipalika/webservice/logs/ipalika-rest.log
+
+database:
+  username: root
+  password: 24Pr1y@msh@
+
+file:
+  upload:
+    directory: /home/suraj/archiesoft/ipalika/
+
+rest:
+  protocol: http
+  domain: 103.233.58.121
+  port: 8888
+  resource-location: resource
+
+letter:
+  bluePrint: /home/suraj/letterBluePrint/
+  html: /home/suraj/letterMailHtml/
+  pdf: /home/suraj/letterMailPdf/
+
+rest-microservice-api:
+  protocol: http
+  domain: 103.233.58.121
+  port: 8889
+
+webservice:
+  host-url: http://103.233.58.121:9191/
